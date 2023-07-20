@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Clock</title>
+</head>
+
+ 
+<style>
+
+	*{
+		margin:0;
+		padding:0;
+		box-sizing: border-box;
+	}
+    body{
+    	display: grid;
+    	justify-content: center;
+    	align-items: center;
+    	height: 100vh;
+    }
+	.datetime{
+		min-width: 330px;
+		height: 160px;
+		width: 450px;
+		/*background-color:rgba(217, 245, 39, 0.8);*/
+		border-radius: 15px;
+		box-shadow: rgba(50,50,93,0.25) 0px 30px 60px -12px inset, rgba(0,0,0,0.3) 0px 18px 36px -18px inset;
+
+
+	
+	}
+	.date{
+		margin-top: 10%;
+		font-size: 30px;
+		font-weight: 500;
+		text-align: center;
+		margin-bottom: 2%;
+
+	}
+	.time{
+		font-size: 28px;
+		font-weight: 300;
+		text-align: center;
+	}
+</style>
+<body>
+   <div class="datetime">
+   	<div class="date">
+   		<span id="day">Day</span>
+   		<span id="month">Month</span>
+   		<span id="date">Date</span>
+   		<span id="year">Year</span>
+   	</div>
+   	<div class="time">
+   		<span id="hours">00</span>:
+   		<span id="minutes">00</span>:
+   		<span id="seconds">00</span>
+   		<span style="color:red" id="ampm">AM</span>
+   	<div>
+   	</div>
+
+
+
+   	<script>
+   		// getting attributes from html
+   		let day = document.getElementById("day");
+   		let month = document.getElementById("month");
+   		let date = document.getElementById("date");
+   		let year = document.getElementById("year");
+        let hour = document.getElementById("hours");
+        let minute =document.getElementById("minutes");
+        let second = document.getElementById("seconds");
+
+
+        // getting individual values from date funciton
+        let now = new Date();
+        let dname = now.getDay();
+        let mon = now.getMonth();
+        let cdate = now.getDate();
+        let yr = now.getFullYear();
+        let hr= now.getHours();
+        let min=now.getMinutes();
+        let sec=now.getSeconds();
+
+        // to display in the browser 
+         hour.textContent=hr;
+         minute.textContent=min;
+         second.textContent=sec;
+         location.reload();
+
+        let weekDays =["Sunday" ,"Monday", "Tuesday", "Wednesday","Thursday","Friday", "Saturday"];
+        let months = ['January', 'February', 'March', 'April',
+                'May', 'June', 'July', 'August', 'September',
+                'October', 'November', 'December'];
+        var dayName = weekDays[now.getDay()];
+        day.textContent=dayName;
+        var moName= months[now.getMonth()];
+        month.textContent=moName;
+        date.textContent=cdate;
+        year.textContent=yr;
+        let ampm=document.getElementById("ampm");
+
+        if(hr>11){
+        	ampm.textContent="PM";
+
+
+        }
+        
+
+
+   	</script>
+</body>
+</html>
